@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Submission Portal | COMSATS Attock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-inner">
+        <a class="university-brand" href="#">
+            <span class="brand-mark">C</span>
+            <span class="brand-copy">
+                <span class="university-name">COMSATS University Islamabad</span>
+                <span class="campus-name">Attock Campus</span>
+            </span>
+        </a>
+        <span class="header-tag">CSC418 · DevOps for Cloud Computing</span>
+    </div>
+</header>
+
+<main class="page-content">
+
+    <section class="page-intro">
+        <p class="eyebrow">COMSATS <span>/</span> STUDENT PORTAL</p>
+        <h1>Assignment Submission Portal</h1>
+        <p class="intro-copy">
+            Submit your coursework details and access the assignment submission list.
+        </p>
+    </section>
+
+    <section class="card form-card">
+        <div class="section-heading">
+            <div>
+                <p class="section-kicker">NEW SUBMISSION</p>
+                <h2>Submit Assignment</h2>
+            </div>
+            <span class="required-note"><span>*</span> Required fields</span>
+        </div>
+
+        <form id="assignmentForm">
+            <div class="form-grid">
+
+                <div class="form-field">
+                    <label for="studentName">Student Name <span>*</span></label>
+                    <input type="text" id="studentName"
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="registrationNumber">Registration Number <span>*</span></label>
+                    <input type="text" id="registrationNumber"
+                           placeholder="e.g. SP23-BCS-006" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="assignmentTitle">Assignment Title <span>*</span></label>
+                    <input type="text" id="assignmentTitle"
+                           placeholder="Enter assignment title" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="submissionUrl">Submission URL <span>*</span></label>
+                    <input type="url" id="submissionUrl"
+                           placeholder="https://example.com" required>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <p class="form-note">
+                    Make sure all information is correct before submitting.
+                </p>
+                <button type="submit">
+                    Submit Assignment <span class="button-arrow">→</span>
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <section class="card submissions-card">
+        <div class="section-heading submissions-heading">
+            <div>
+                <p class="section-kicker">RECORDS</p>
+                <h2>Submitted Assignments</h2>
+            </div>
+            <span class="record-count" id="recordCount">0 submissions</span>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Registration Number</th>
+                        <th>Assignment Title</th>
+                        <th>Submission URL</th>
+                    </tr>
+                </thead>
+                <tbody id="submissionList">
+                    <tr>
+                        <td colspan="4" class="empty-state">
+                            <div class="empty-icon">↗</div>
+                            <strong>No submissions yet</strong>
+                            <p>Submitted assignments will appear here.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <p class="form-note" style="margin-top:16px;">
+        Static demo: submissions appear in this browser only and are not saved to a server or database.
+    </p>
+
+</main>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <p class="footer-university">
+            COMSATS University Islamabad
+            <span>Attock Campus</span>
+        </p>
+        <p class="footer-course">
+            DevOps for Cloud Computing
+            <span>CSC418</span>
+        </p>
+    </div>
+</footer>
+
+<script>
+const form = document.getElementById("assignmentForm");
+const submissionList = document.getElementById("submissionList");
+const recordCount = document.getElementById("recordCount");
+
+let totalSubmissions = 0;
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const name = document.getElementById("studentName").value.trim();
+    const regNo = document.getElementById("registrationNumber").value.trim();
+    const title = document.getElementById("assignmentTitle").value.trim();
+    const url = document.getElementById("submissionUrl").value.trim();
+
+    if (totalSubmissions === 0) {
+        submissionList.innerHTML = "";
+    }
+
+    const row = document.createElement("tr");
+
+    [name, regNo, title].forEach(value => {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        row.appendChild(cell);
+    });
+
+    const urlCell = document.createElement("td");
+    const link = document.createElement("a");
+    link.href = url;
+    link.textContent = "View Submission";
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    urlCell.appendChild(link);
+    row.appendChild(urlCell);
+
+    submissionList.appendChild(row);
+
+    totalSubmissions++;
+    recordCount.textContent = totalSubmissions +
+        (totalSubmissions === 1 ? " submission" : " submissions");
+
+    form.reset();
+});
+</script>
+
+</body>
+</html>

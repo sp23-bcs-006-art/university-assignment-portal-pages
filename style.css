@@ -1,0 +1,541 @@
+:root {
+  color-scheme: light;
+  --navy: #102b50;
+  --navy-deep: #0b203d;
+  --blue: #1d5b9c;
+  --blue-soft: #eaf2fa;
+  --ink: #1d2939;
+  --muted: #66758a;
+  --line: #e5eaf0;
+  --surface: #ffffff;
+  --page: #f4f6f9;
+  --shadow: 0 12px 32px rgb(16 43 80 / 6%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--page);
+  color: var(--ink);
+  font-family: "DM Sans", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-header {
+  background: var(--navy-deep);
+  color: #ffffff;
+}
+
+.header-inner,
+.footer-inner {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-inner {
+  min-height: 82px;
+  gap: 24px;
+}
+
+.university-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: 12px;
+  color: #ffffff;
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand-copy {
+  display: grid;
+  gap: 3px;
+}
+
+.university-name {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.campus-name {
+  color: #b7c8dc;
+  font-size: 12px;
+}
+
+.header-tag {
+  padding: 9px 13px;
+  border: 1px solid rgb(255 255 255 / 17%);
+  border-radius: 999px;
+  color: #d7e2ee;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.page-content {
+  width: min(940px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 55px 0 64px;
+  flex: 1;
+}
+
+.page-intro {
+  margin-bottom: 30px;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 10px;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.eyebrow span {
+  padding: 0 5px;
+  color: #98a7b7;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: "Manrope", "Segoe UI", sans-serif;
+}
+
+h1 {
+  margin-bottom: 10px;
+  color: var(--navy-deep);
+  font-size: clamp(29px, 4vw, 38px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.intro-copy {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.flash-message {
+  margin: -13px 0 23px;
+  padding: 12px 15px;
+  border: 1px solid;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.flash-error {
+  border-color: #efcaca;
+  background: #fff5f5;
+  color: #963c3c;
+}
+
+.flash-success {
+  border-color: #c9e6d3;
+  background: #f2fbf5;
+  color: #28643c;
+}
+
+.card {
+  overflow: hidden;
+  border: 1px solid #e8edf3;
+  border-radius: 15px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.form-card {
+  padding: 27px 30px 25px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  margin-bottom: 6px;
+  font-size: 10px;
+}
+
+h2 {
+  margin-bottom: 0;
+  color: var(--navy-deep);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.required-note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.required-note span,
+.form-field label span {
+  color: #c05252;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px 20px;
+}
+
+.form-field {
+  min-width: 0;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #34445a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.form-field input {
+  width: 100%;
+  height: 45px;
+  padding: 0 13px;
+  border: 1px solid #dce3eb;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.form-field input::placeholder {
+  color: #9aa6b5;
+}
+
+.form-field input:hover {
+  border-color: #b9c8d8;
+}
+
+.form-field input:focus {
+  border-color: #4a7fb3;
+  box-shadow: 0 0 0 3px rgb(74 127 179 / 14%);
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 23px;
+  padding-top: 20px;
+  border-top: 1px solid #edf0f4;
+}
+
+.form-note {
+  margin-bottom: 0;
+  color: #7b8796;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+button {
+  min-height: 44px;
+  padding: 0 17px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #164b82;
+  box-shadow: 0 5px 13px rgb(29 91 156 / 23%);
+}
+
+button:focus-visible {
+  outline: 3px solid rgb(74 127 179 / 38%);
+  outline-offset: 3px;
+}
+
+.button-arrow {
+  font-size: 17px;
+  line-height: 1;
+}
+
+.submissions-card {
+  margin-top: 25px;
+}
+
+.submissions-heading {
+  margin: 0;
+  padding: 24px 27px 20px;
+}
+
+.record-count {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: #315d88;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-top: 1px solid var(--line);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+thead {
+  background: #f8fafc;
+}
+
+th {
+  padding: 13px 17px;
+  color: #526277;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+}
+
+th:first-child,
+td:first-child {
+  padding-left: 27px;
+}
+
+th:last-child,
+td:last-child {
+  padding-right: 27px;
+}
+
+td {
+  padding: 16px 17px;
+  border-top: 1px solid #edf0f4;
+  color: #36465b;
+  font-size: 13px;
+}
+
+.empty-state {
+  height: 126px;
+  color: #7b8796;
+  text-align: center;
+}
+
+.empty-icon {
+  width: 29px;
+  height: 29px;
+  margin: 0 auto 9px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e1e7ee;
+  border-radius: 50%;
+  color: #8291a3;
+  font-size: 17px;
+}
+
+.site-footer {
+  border-top: 1px solid #e5eaf0;
+  background: #ffffff;
+}
+
+.footer-inner {
+  min-height: 68px;
+  gap: 16px;
+}
+
+.footer-university,
+.footer-course {
+  margin: 0;
+  color: #66758a;
+  font-size: 12px;
+}
+
+.footer-university {
+  font-weight: 600;
+}
+
+.footer-university span {
+  padding: 0 3px;
+  color: #a0abba;
+}
+
+.footer-course span {
+  padding: 0 4px;
+  color: #9aa6b5;
+}
+
+@media (max-width: 640px) {
+  .header-inner,
+  .footer-inner {
+    width: min(100% - 32px, 1120px);
+  }
+
+  .header-inner {
+    min-height: 74px;
+  }
+
+  .brand-mark {
+    width: 39px;
+    height: 39px;
+  }
+
+  .university-name {
+    font-size: 12px;
+  }
+
+  .campus-name {
+    font-size: 11px;
+  }
+
+  .header-tag {
+    display: none;
+  }
+
+  .page-content {
+    width: min(100% - 32px, 940px);
+    padding: 39px 0 45px;
+  }
+
+  .page-intro {
+    margin-bottom: 23px;
+  }
+
+  .form-card {
+    padding: 22px 19px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .submissions-heading {
+    padding: 21px 19px 18px;
+  }
+
+  .table-wrap {
+    overflow: visible;
+  }
+
+  table,
+  tbody {
+    display: block;
+    width: 100%;
+  }
+
+  thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  tr {
+    display: block;
+  }
+
+  .empty-state {
+    height: 116px;
+  }
+
+  th:first-child,
+  td:first-child {
+    padding-left: 16px;
+  }
+
+  th:last-child,
+  td:last-child {
+    padding-right: 16px;
+  }
+
+  .footer-inner {
+    min-height: 76px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
+  .record-count {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
